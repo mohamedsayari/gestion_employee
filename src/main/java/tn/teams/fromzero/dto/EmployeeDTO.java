@@ -1,7 +1,4 @@
 package tn.teams.fromzero.dto;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -14,8 +11,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.teams.fromzero.entities.Address;
 import tn.teams.fromzero.entities.Employee;
+
 
 @Builder
 @AllArgsConstructor
@@ -40,7 +37,7 @@ public class EmployeeDTO {
     private String email ;
    
   
-   
+    private AddressDTO  addressdto ;
     
     public static EmployeeDTO fromEntity(Employee employee){
         return EmployeeDTO.builder()
@@ -48,6 +45,7 @@ public class EmployeeDTO {
                 .age(employee.getAge())
                 .email(employee.getEmail())
                 .fullName(employee.getFullName())
+                .addressdto(AddressDTO.fromEntity(employee.getAddress()))
                 .build();
     }
     public static Employee toEntity(EmployeeDTO dto){
@@ -56,6 +54,7 @@ public class EmployeeDTO {
                 .age(dto.getAge())
                 .email(dto.getEmail())
                 .fullName(dto.getFullName())
+                .address(AddressDTO.toEntity(dto.getAddressdto()))
                 .build();
     }
 }
