@@ -28,6 +28,8 @@ public class AddressDTO {
 	                    .street(address.getStreet())
 	                    .housnumber(address.getHousnumber())
 	                    .zipcode(address.getZipcode())
+	                    /* relation  one to  one **/
+	                    .employeedto(EmployeeDTO.fromEntity(address.getEmployee()))
 	                    .build();
 	        
 	    }
@@ -38,6 +40,8 @@ public class AddressDTO {
 	                .street(dto.getStreet())
 	                .housnumber(dto.getHousnumber())
 	                .zipcode(dto.getZipcode())
+	                /* relation  one to  one **/
+	                .employee(EmployeeDTO.toEntity(dto.getEmployeedto()))
 	                .build();
 	    }
 }

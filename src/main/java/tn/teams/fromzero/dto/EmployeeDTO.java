@@ -45,6 +45,7 @@ public class EmployeeDTO {
                 .age(employee.getAge())
                 .email(employee.getEmail())
                 .fullName(employee.getFullName())
+                /* relation  one to  one **/
                 .addressdto(AddressDTO.fromEntity(employee.getAddress()))
                 .build();
     }
@@ -54,6 +55,7 @@ public class EmployeeDTO {
                 .age(dto.getAge())
                 .email(dto.getEmail())
                 .fullName(dto.getFullName())
+                /* relation  one to  one **/
                 .address(AddressDTO.toEntity(dto.getAddressdto()))
                 .build();
     }
